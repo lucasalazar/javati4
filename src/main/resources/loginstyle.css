@@ -1,0 +1,24 @@
+*{font-family: 'Poppins' , sans-serif;}
+.text-center{
+    color: rgb(168, 45, 45);
+}
+
+.form-control{
+    color:gray;
+}
+
+.btn-info{
+    background-color:rgb(168, 45, 45);
+}
+
+body{
+    background-color:rgb(226, 226, 226);
+}
+
+html{
+    background-color: rgb(226, 226, 226);
+}
+
+.logo{
+    width: 120px ;
+}

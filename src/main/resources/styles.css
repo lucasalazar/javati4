@@ -1,0 +1,43 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #e5e9f2;
+}
+
+html {
+    background-color: #e5e9f2;
+}
+
+header {
+    background-color: #e5e9f2;
+}
+
+main {
+    background-color: #e5e9f2;
+}
+
+h1 {
+    color: #47525e;
+}
+
+#botao {
+    text-align: center
+}
+
+.botaoEnviar {
+    color: white;
+    width: 350px;
+    text-align: center;
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #47525e;
+    font-size: 18px;
+}
+
+h1 {
+    color: #47525e;
+    text-align: center;
+}
