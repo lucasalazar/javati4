@@ -8,6 +8,7 @@ async function loginUser() {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+            Accept: "*/*",
         },
     })
         .then((res) => res.json)

@@ -28,11 +28,11 @@ public class PhishingDAO {
 			Class.forName(driverName);
 			conexao = DriverManager.getConnection(url, username, password);
 			status = (conexao == null);
-			System.out.println("Conex„o efetuada com o postgres!");
+			System.out.println("Conex√£o efetuada com o postgres!");
 		} catch (ClassNotFoundException e) {
-			System.err.println("Conex„o N√O efetuada com o postgres -- Driver n„o encontrado -- " + e.getMessage());
+			System.err.println("Conex√£o N√ÉO efetuada com o postgres -- Driver n√£o encontrado -- " + e.getMessage());
 		} catch (SQLException e) {
-			System.err.println("Conex√£o N√O efetuada com o postgres -- " + e.getMessage());
+			System.err.println("Conex√£o N√ÉO efetuada com o postgres -- " + e.getMessage());
 		}
 
 		return status;
@@ -51,7 +51,6 @@ public class PhishingDAO {
 	}
 
 	public boolean inserirUsuario(Usuario usuario) {
-
 		boolean status = false;
 		try {
 			Statement st = conexao.createStatement();
@@ -111,7 +110,6 @@ public class PhishingDAO {
 	public Usuario getLogin(String login, String senha) {
 		System.out.println("1");
 		Usuario[] usuario = null;
-		String a;
 		Usuario alo = null;
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
