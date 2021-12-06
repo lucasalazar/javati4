@@ -2,187 +2,180 @@
 
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
 
-<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-<groupId>com.ti2cc</groupId>
+    <groupId>com.ti2cc</groupId>
 
-<artifactId>maven1.demo</artifactId>
+    <artifactId>maven1.demo</artifactId>
 
-<version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
 
-<dependencies>
+    <dependencies>
 
 
-<dependency>
+        <dependency>
 
-<groupId>org.postgresql</groupId>
+            <groupId>org.postgresql</groupId>
 
-<artifactId>postgresql</artifactId>
+            <artifactId>postgresql</artifactId>
 
-<version>42.2.16</version>
+            <version>42.2.16</version>
 
-</dependency>
+        </dependency>
 
 
-<dependency>
+        <dependency>
 
-<groupId>com.sparkjava</groupId>
+            <groupId>com.sparkjava</groupId>
 
-<artifactId>spark-core</artifactId>
+            <artifactId>spark-core</artifactId>
 
-<version>2.9.2</version>
+            <version>2.9.2</version>
 
-</dependency>
+        </dependency>
 
 
-<dependency>
+        <dependency>
 
-<groupId>org.slf4j</groupId>
+            <groupId>org.slf4j</groupId>
 
-<artifactId>slf4j-simple</artifactId>
+            <artifactId>slf4j-simple</artifactId>
 
-<version>1.7.21</version>
+            <version>1.7.21</version>
 
-</dependency>
+        </dependency>
 
 
+        <dependency>
 
+            <groupId>org.json</groupId>
 
-<dependency>
+            <artifactId>json</artifactId>
 
-<groupId>org.json</groupId>
+            <version>20190722</version>
 
-<artifactId>json</artifactId>
+        </dependency>
 
-<version>20190722</version>
 
-</dependency>
+        <dependency>
 
+            <groupId>com.google.code.gson</groupId>
 
+            <artifactId>gson</artifactId>
 
+            <version>2.8.6</version>
 
-<dependency>
+        </dependency>
 
-<groupId>com.google.code.gson</groupId>
+    </dependencies>
 
-<artifactId>gson</artifactId>
 
-<version>2.8.6</version>
+    <build>
 
-</dependency>
 
-</dependencies>
+        <plugins>
 
 
-<build>
+            <plugin>
 
+                <groupId>org.apache.maven.plugins</groupId>
 
-<plugins>
+                <artifactId>maven-compiler-plugin</artifactId>
 
+                <version>2.3.2</version>
 
-<plugin>
 
-<groupId>org.apache.maven.plugins</groupId>
+                <configuration>
 
-<artifactId>maven-compiler-plugin</artifactId>
+                    <source>11</source>
 
-<version>2.3.2</version>
+                    <target>11</target>
 
+                </configuration>
 
-<configuration>
+            </plugin>
 
-<source>11</source>
 
-<target>11</target>
+            <plugin>
 
-</configuration>
+                <artifactId>maven-assembly-plugin</artifactId>
 
-</plugin>
 
+                <executions>
 
-<plugin>
 
-<artifactId>maven-assembly-plugin</artifactId>
+                    <execution>
 
+                        <phase>package</phase>
 
-<executions>
 
+                        <goals>
 
-<execution>
+                            <goal>single</goal>
 
-<phase>package</phase>
+                        </goals>
 
+                    </execution>
 
-<goals>
+                </executions>
 
-<goal>single</goal>
 
-</goals>
+                <configuration>
 
-</execution>
 
-</executions>
+                    <descriptorRefs>
 
 
-<configuration>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
 
+                    </descriptorRefs>
 
-<descriptorRefs>
 
+                    <archive>
+                        -
+                        <manifest>
 
+                            <mainClass>Aplicacao</mainClass>
 
-<descriptorRef>jar-with-dependencies</descriptorRef>
+                        </manifest>
 
-</descriptorRefs>
+                    </archive>
 
+                </configuration>
 
-<archive>
+            </plugin>
 
 
--<manifest>
+            <plugin>
 
-<mainClass>Aplicacao</mainClass>
+                <groupId>com.heroku.sdk</groupId>
 
-</manifest>
+                <artifactId>heroku-maven-plugin</artifactId>
 
-</archive>
+                <version>3.0.4</version>
 
-</configuration>
 
-</plugin>
+                <configuration>
 
+                    <jdkVersion>1.8</jdkVersion>
 
-<plugin>
+                    <appName>phishing-ti4</appName>
 
-<groupId>com.heroku.sdk</groupId>
 
-<artifactId>heroku-maven-plugin</artifactId>
+                    <processTypes>
 
-<version>3.0.4</version>
 
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Aplicacao</web>
 
-<configuration>
+                    </processTypes>
 
-<jdkVersion>11</jdkVersion>
+                </configuration>
 
+            </plugin>
 
-<appName>meadote-ti2</appName>
+        </plugins>
 
-
-<processTypes>
-
-
-<web>java $JAVA_OPTS -cp target/classes:target/dependency/* Aplicacao</web>
-
-</processTypes>
-
-</configuration>
-
-</plugin>
-
-</plugins>
-
-</build>
+    </build>
 
 </project>
